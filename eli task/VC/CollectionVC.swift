@@ -16,7 +16,14 @@ class CollectionVC: UICollectionViewController {
     // MARK: Add Button
     @IBAction private func addAction(_ sender: UIBarButtonItem) {
         imageCollection.append(contentsOf: Constants.imagesOfCats)
-        collectionView.reloadData()
+        //Get last index
+        let arrayOfVisibleItems = collectionView.indexPathsForVisibleItems.sorted()
+        let lastIndexPath = arrayOfVisibleItems.last
+        print("Array: ", arrayOfVisibleItems)
+        print("Last IndexPath: ", lastIndexPath)
+        //        let indexPath = IndexPath(item: lastItem, section: lastSection)
+        //        collectionView.reloadItems(at: [indexPath])
+        //        collectionView.reloadSections(at: [indexPath])
     }
     
     // MARK: Refresh Button
@@ -66,10 +73,22 @@ class CollectionVC: UICollectionViewController {
     
     private func layoutSetup() {
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize = CGSize(width: 2, height: 2)
         layout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         layout.minimumLineSpacing = 2
         layout.minimumInteritemSpacing = 2
         layout.scrollDirection = .vertical
+        collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
+    }
+}
+
+extension UICollectionView {
+    func scrollToLastCell(animated : Bool) {
+        let lastSectionIndex = self.numberOfSections - 1 // last section
+        let lastRowIndex = self.numberOfItems(inSection: lastSectionIndex) - 1 // last item
+        let indexPath = IndexPath(item: lastRowIndex, section: lastSectionIndex)
+        print(indexPath)
+        //collectionView.reloadItems(at: [indexPath])
     }
 }

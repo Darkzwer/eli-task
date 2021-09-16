@@ -62,14 +62,11 @@
 		782AC71126F20D98009F3E75 /* eli task */ = {
 			isa = PBXGroup;
 			children = (
-				782AC72E26F20F6A009F3E75 /* AppConstants.swift */,
-				782AC71226F20D98009F3E75 /* AppDelegate.swift */,
-				782AC71426F20D98009F3E75 /* SceneDelegate.swift */,
+				78DB3D7226F36EA200717953 /* Application Layer */,
 				782AC72D26F20E59009F3E75 /* Model */,
 				782AC72A26F20E43009F3E75 /* VC */,
 				782AC71826F20D98009F3E75 /* Main.storyboard */,
-				782AC71B26F20D9E009F3E75 /* Assets.xcassets */,
-				782AC71D26F20D9E009F3E75 /* LaunchScreen.storyboard */,
+				78DB3D7326F36EE700717953 /* Supporting Files */,
 				782AC72026F20D9E009F3E75 /* Info.plist */,
 			);
 			path = "eli task";
@@ -90,6 +87,25 @@
 				782AC72B26F20E51009F3E75 /* DataModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		78DB3D7226F36EA200717953 /* Application Layer */ = {
+			isa = PBXGroup;
+			children = (
+				782AC72E26F20F6A009F3E75 /* AppConstants.swift */,
+				782AC71226F20D98009F3E75 /* AppDelegate.swift */,
+				782AC71426F20D98009F3E75 /* SceneDelegate.swift */,
+			);
+			path = "Application Layer";
+			sourceTree = "<group>";
+		};
+		78DB3D7326F36EE700717953 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				782AC71B26F20D9E009F3E75 /* Assets.xcassets */,
+				782AC71D26F20D9E009F3E75 /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
