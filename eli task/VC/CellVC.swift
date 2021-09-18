@@ -10,12 +10,12 @@ import UIKit
 
 class CellVC: UICollectionViewCell {
     
-    @IBOutlet private weak var imageGallery: UIImageView!
+    @IBOutlet weak var imageGallery: UIImageView!
     @IBOutlet private weak var spinner: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        imageSetup()
+        //imageSetup()
     }
     
     // MARK: - Public API
