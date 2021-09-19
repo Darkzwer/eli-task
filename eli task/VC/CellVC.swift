@@ -15,7 +15,7 @@ class CellVC: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        //imageSetup()
+        imageSetup()
     }
     
     // MARK: - Public API
@@ -33,7 +33,7 @@ class CellVC: UICollectionViewCell {
                     if let imageData = urlContents,
                         url == self.imageURL,
                         let image = UIImage(data: imageData) {
-                        self.imageGallery?.image = image
+                            self.imageGallery?.image = image
                     }
                     self.spinner?.stopAnimating()
                 }

@@ -20,19 +20,13 @@ class CollectionVC: UICollectionViewController {
         let lastIndexPath = IndexPath(item: imageCollection.count, section: 0)
         imageCollection.append(contentsOf: Constants.imagesOfCats)
         collectionView.insertItems(at: [lastIndexPath])
-        //collectionView.reloadItems(at: [lastIndexPath])
         print(lastIndexPath)
     }
     
     // MARK: Refresh Button
     @IBAction private func refreshAction(_ sender: UIBarButtonItem) {
         imageCollection.removeAll()
-        var i = 0
-        repeat {
-            i+=1
-            imageCollection.append(contentsOf: Constants.imagesOfCats)
-            collectionView.reloadData()
-        } while i < 140
+        imageDownload()
     }
     
     override func viewDidLoad() {
@@ -72,7 +66,9 @@ class CollectionVC: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath)
         if let imageCell = cell as? CellVC {
             let images = imageCollection[indexPath.item]
-            imageCell.imageURL = images.url
+            if imageCell.imageURL != images.url {
+                imageCell.imageURL = images.url
+            }
         }
         return cell
     }
@@ -80,7 +76,7 @@ class CollectionVC: UICollectionViewController {
     // MARK: UICollectionViewLayout
     private func layoutSetup() {
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: 50, height: 50)
+        layout.itemSize = CGSize(width: 10, height: 10)
         layout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
         layout.minimumLineSpacing = 2
         layout.minimumInteritemSpacing = 2
