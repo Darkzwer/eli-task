@@ -10,6 +10,8 @@ import UIKit
 
 class CollectionVC: UICollectionViewController {
     
+    //var urlcheck = imageCell.imageURL
+    
     // MARK: - Public API, Model
     private var imageCollection = [ImageModel]()
     
@@ -17,40 +19,35 @@ class CollectionVC: UICollectionViewController {
     
     // MARK: Add Button
     @IBAction private func addAction(_ sender: UIBarButtonItem) {
-        let lastIndexPath = IndexPath(item: imageCollection.count, section: 0)
-        imageCollection.append(contentsOf: Constants.imagesOfCats)
-        collectionView.insertItems(at: [lastIndexPath])
-        print(lastIndexPath)
+        imageDownload()
     }
     
     // MARK: Refresh Button
     @IBAction private func refreshAction(_ sender: UIBarButtonItem) {
         imageCollection.removeAll()
-        imageDownload()
+        //let images = [ImageModel(url: URL(string: Constants.url)!)]
+        var i = 0
+        repeat {
+            i+=1
+            imageDownload()
+        } while i < 140
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Funny Cats & Girls"
-        imageDownload()
         layoutSetup()
-    }
-    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        myCollection.collectionViewLayout.invalidateLayout()
-//    }
-    
-    func imageDownload() {
         var i = 0
         repeat {
             i+=1
-            //imageCollection.append(contentsOf: Constants.imagesOfCats)
-            //collectionView.reloadData()
-            let lastIndexPath = IndexPath(item: imageCollection.count, section: 0)
-            imageCollection.append(contentsOf: Constants.imagesOfCats)
-            collectionView.insertItems(at: [lastIndexPath])
-        } while i < 150
+            imageDownload()
+        } while i < 140
+    }
+    
+    func imageDownload() {
+        let lastIndexPath = IndexPath(item: imageCollection.count, section: 0)
+        imageCollection.append(contentsOf: Constants.imagesOfCats)
+        collectionView.insertItems(at: [lastIndexPath])
     }
     
     // MARK: UICollectionViewDataSource
@@ -66,8 +63,10 @@ class CollectionVC: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.cellIdentifier, for: indexPath)
         if let imageCell = cell as? CellVC {
             let images = imageCollection[indexPath.item]
-            if imageCell.imageURL != images.url {
-                imageCell.imageURL = images.url
+                DispatchQueue.main.async {
+                    if imageCell.imageURL == nil, imageCell.imageURL != images.url {
+                    imageCell.imageURL = images.url
+                }
             }
         }
         return cell
@@ -81,7 +80,7 @@ class CollectionVC: UICollectionViewController {
         layout.minimumLineSpacing = 2
         layout.minimumInteritemSpacing = 2
         layout.scrollDirection = .vertical
-        collectionView.backgroundColor = .black
+        collectionView.backgroundColor = .systemYellow
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
         collectionView.contentMode = .scaleAspectFill
@@ -91,7 +90,7 @@ class CollectionVC: UICollectionViewController {
 }
 
 //extension CollectionVC: UICollectionViewDelegateFlowLayout {
-    
+
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 //        let itemsPerRow: CGFloat = 2
 //        let paddingWidht = 20 * (itemsPerRow + 1)

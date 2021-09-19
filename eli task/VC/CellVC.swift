@@ -23,7 +23,7 @@ class CellVC: UICollectionViewCell {
         didSet { updateUI()}
     }
     
-    private func updateUI() {
+    private func updateUI() {//dont work if we check image set
         if let url = imageURL{
             spinner?.startAnimating()
             imageGallery.image = nil
@@ -33,7 +33,7 @@ class CellVC: UICollectionViewCell {
                     if let imageData = urlContents,
                         url == self.imageURL,
                         let image = UIImage(data: imageData) {
-                            self.imageGallery?.image = image
+                        self.imageGallery?.image = image
                     }
                     self.spinner?.stopAnimating()
                 }
