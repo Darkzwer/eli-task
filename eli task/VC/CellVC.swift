@@ -26,7 +26,7 @@ class CellVC: UICollectionViewCell {
     private func updateUI() {
         if let url = imageURL{
             spinner?.startAnimating()
-            //imageGallery.image = nil
+            imageGallery.image = nil
             DispatchQueue.global(qos: .userInitiated).async {
                 let urlContents = try? Data(contentsOf: url)
                 DispatchQueue.main.async {

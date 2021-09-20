@@ -30,7 +30,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-e6-inx">
-                                            <rect key="frame" x="1" y="1" width="42" height="42"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                                         </imageView>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="yOX-Hb-Vbq">
                                             <rect key="frame" x="12" y="12" width="20" height="20"/>
@@ -39,12 +39,12 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="yOX-Hb-Vbq" firstAttribute="centerX" secondItem="pcs-tV-hTm" secondAttribute="centerX" id="MQ2-id-Hfb"/>
-                                        <constraint firstItem="vcq-e6-inx" firstAttribute="leading" secondItem="pcs-tV-hTm" secondAttribute="leading" constant="1" id="Qry-bv-d2c"/>
-                                        <constraint firstAttribute="bottom" secondItem="vcq-e6-inx" secondAttribute="bottom" constant="1" id="VxW-WL-wRf"/>
+                                        <constraint firstItem="vcq-e6-inx" firstAttribute="leading" secondItem="pcs-tV-hTm" secondAttribute="leading" id="Qry-bv-d2c"/>
+                                        <constraint firstAttribute="bottom" secondItem="vcq-e6-inx" secondAttribute="bottom" id="VxW-WL-wRf"/>
                                         <constraint firstItem="vcq-e6-inx" firstAttribute="centerY" secondItem="yOX-Hb-Vbq" secondAttribute="centerY" id="Wok-Zh-OfN"/>
                                         <constraint firstItem="yOX-Hb-Vbq" firstAttribute="centerY" secondItem="pcs-tV-hTm" secondAttribute="centerY" id="Xiz-jo-u0Q"/>
-                                        <constraint firstItem="vcq-e6-inx" firstAttribute="top" secondItem="pcs-tV-hTm" secondAttribute="top" constant="1" id="h2R-SQ-qCH"/>
-                                        <constraint firstAttribute="trailing" secondItem="vcq-e6-inx" secondAttribute="trailing" constant="1" id="ipL-w2-iGd"/>
+                                        <constraint firstItem="vcq-e6-inx" firstAttribute="top" secondItem="pcs-tV-hTm" secondAttribute="top" id="h2R-SQ-qCH"/>
+                                        <constraint firstAttribute="trailing" secondItem="vcq-e6-inx" secondAttribute="trailing" id="ipL-w2-iGd"/>
                                         <constraint firstItem="vcq-e6-inx" firstAttribute="centerX" secondItem="yOX-Hb-Vbq" secondAttribute="centerX" id="lVe-Ye-49G"/>
                                     </constraints>
                                 </collectionViewCellContentView>
