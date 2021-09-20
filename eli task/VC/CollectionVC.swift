@@ -15,9 +15,7 @@ class CollectionVC: UICollectionViewController {
     
     // MARK: Add Button
     @IBAction private func addAction(_ sender: UIBarButtonItem) {
-        let lastIndexPath = IndexPath(item: imageCollection.count, section: 0)
-        imageCollection.append(contentsOf: Constants.imagesOfCats)
-        collectionView.insertItems(at: [lastIndexPath])
+        imageDownload(n: 1)
     }
     
     // MARK: Refresh Button
@@ -30,7 +28,7 @@ class CollectionVC: UICollectionViewController {
         super.viewDidLoad()
         self.title = "Funny Cats & Girls"
         layoutSetup()
-        imageDownload(n: 280)
+        imageDownload(n: 279)
     }
     
     func imageDownload(n: Int) {
