@@ -26,7 +26,7 @@ class CellVC: UICollectionViewCell {
     private func updateUI() {
         if let url = imageURL{
             spinner?.startAnimating()
-            imageGallery.image = nil
+            //imageGallery.image = nil
             DispatchQueue.global(qos: .userInitiated).async {
                 let urlContents = try? Data(contentsOf: url)
                 DispatchQueue.main.async {
@@ -44,9 +44,9 @@ class CellVC: UICollectionViewCell {
     
     // MARK: - ImageSetup
     private func imageSetup() {
-        //imageGallery.contentMode = .scaleAspectFill
+        imageGallery.contentMode = .scaleAspectFill
         imageGallery.layer.cornerRadius = 7
-        //imageGallery.clipsToBounds = true
+        imageGallery.clipsToBounds = true
     }
     
 }

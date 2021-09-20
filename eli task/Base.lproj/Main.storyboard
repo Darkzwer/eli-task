@@ -17,7 +17,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="2" minimumInteritemSpacing="2" id="6fV-vM-dhP">
                             <size key="itemSize" width="44" height="44"/>
-                            <size key="estimatedItemSize" width="44" height="44"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="2" minY="2" maxX="2" maxY="2"/>
@@ -30,22 +29,22 @@
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-e6-inx">
-                                            <rect key="frame" x="28" y="28" width="44" height="44"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="44" id="BLd-MB-zwb"/>
-                                                <constraint firstAttribute="height" constant="44" id="vNI-9C-aK5"/>
-                                            </constraints>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vcq-e6-inx">
+                                            <rect key="frame" x="1" y="1" width="42" height="42"/>
                                         </imageView>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="yOX-Hb-Vbq">
-                                            <rect key="frame" x="40" y="40" width="20" height="20"/>
+                                            <rect key="frame" x="12" y="12" width="20" height="20"/>
                                             <color key="color" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="yOX-Hb-Vbq" firstAttribute="centerX" secondItem="pcs-tV-hTm" secondAttribute="centerX" id="MQ2-id-Hfb"/>
+                                        <constraint firstItem="vcq-e6-inx" firstAttribute="leading" secondItem="pcs-tV-hTm" secondAttribute="leading" constant="1" id="Qry-bv-d2c"/>
+                                        <constraint firstAttribute="bottom" secondItem="vcq-e6-inx" secondAttribute="bottom" constant="1" id="VxW-WL-wRf"/>
                                         <constraint firstItem="vcq-e6-inx" firstAttribute="centerY" secondItem="yOX-Hb-Vbq" secondAttribute="centerY" id="Wok-Zh-OfN"/>
                                         <constraint firstItem="yOX-Hb-Vbq" firstAttribute="centerY" secondItem="pcs-tV-hTm" secondAttribute="centerY" id="Xiz-jo-u0Q"/>
+                                        <constraint firstItem="vcq-e6-inx" firstAttribute="top" secondItem="pcs-tV-hTm" secondAttribute="top" constant="1" id="h2R-SQ-qCH"/>
+                                        <constraint firstAttribute="trailing" secondItem="vcq-e6-inx" secondAttribute="trailing" constant="1" id="ipL-w2-iGd"/>
                                         <constraint firstItem="vcq-e6-inx" firstAttribute="centerX" secondItem="yOX-Hb-Vbq" secondAttribute="centerX" id="lVe-Ye-49G"/>
                                     </constraints>
                                 </collectionViewCellContentView>
