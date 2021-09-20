@@ -10,50 +10,40 @@ import UIKit
 
 class CollectionVC: UICollectionViewController {
     
-    //var urlcheck = imageCell.imageURL
-    
     // MARK: - Public API, Model
     private var imageCollection = [ImageModel]()
     
-    @IBOutlet weak var myCollection: UICollectionView!
-    
     // MARK: Add Button
     @IBAction private func addAction(_ sender: UIBarButtonItem) {
-        imageDownload()
+        let lastIndexPath = IndexPath(item: imageCollection.count, section: 0)
+        imageCollection.append(contentsOf: Constants.imagesOfCats)
+        collectionView.insertItems(at: [lastIndexPath])
     }
     
     // MARK: Refresh Button
     @IBAction private func refreshAction(_ sender: UIBarButtonItem) {
         imageCollection.removeAll()
-        //let images = [ImageModel(url: URL(string: Constants.url)!)]
-        var i = 0
-        repeat {
-            i+=1
-            imageDownload()
-        } while i < 140
+        imageDownload(n: 140)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Funny Cats & Girls"
         layoutSetup()
+        imageDownload(n: 280)
+    }
+    
+    func imageDownload(n: Int) {
         var i = 0
         repeat {
             i+=1
-            imageDownload()
-        } while i < 140
-    }
-    
-    func imageDownload() {
-        let lastIndexPath = IndexPath(item: imageCollection.count, section: 0)
-        imageCollection.append(contentsOf: Constants.imagesOfCats)
-        collectionView.insertItems(at: [lastIndexPath])
+            let lastIndexPath = IndexPath(item: imageCollection.count, section: 0)
+            imageCollection.append(contentsOf: Constants.imagesOfCats)
+            collectionView.insertItems(at: [lastIndexPath])
+        } while i < n
     }
     
     // MARK: UICollectionViewDataSource
-    override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 1
-    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return imageCollection.count
@@ -75,17 +65,14 @@ class CollectionVC: UICollectionViewController {
     // MARK: UICollectionViewLayout
     private func layoutSetup() {
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
-        layout.itemSize = CGSize(width: 10, height: 10)
-        layout.sectionInset = UIEdgeInsets(top: 2, left: 2, bottom: 2, right: 2)
-        layout.minimumLineSpacing = 2
-        layout.minimumInteritemSpacing = 2
+//        layout.minimumLineSpacing = 2.0
+//        layout.minimumInteritemSpacing = 2.0
+//        layout.sectionInset = UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
         layout.scrollDirection = .vertical
-        collectionView.backgroundColor = .systemYellow
+        collectionView.isPagingEnabled = true
+        collectionView.backgroundColor = .systemBackground
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
-        collectionView.contentMode = .scaleAspectFill
-        collectionView.layer.cornerRadius = 7
-        collectionView.clipsToBounds = true
     }
 }
 

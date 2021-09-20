@@ -23,7 +23,7 @@ class CellVC: UICollectionViewCell {
         didSet { updateUI()}
     }
     
-    private func updateUI() {//dont work if we check image set
+    private func updateUI() {
         if let url = imageURL{
             spinner?.startAnimating()
             imageGallery.image = nil
@@ -32,7 +32,8 @@ class CellVC: UICollectionViewCell {
                 DispatchQueue.main.async {
                     if let imageData = urlContents,
                         url == self.imageURL,
-                        let image = UIImage(data: imageData) {
+                        let image = UIImage(data: imageData)
+                    {
                         self.imageGallery?.image = image
                     }
                     self.spinner?.stopAnimating()
@@ -43,9 +44,9 @@ class CellVC: UICollectionViewCell {
     
     // MARK: - ImageSetup
     private func imageSetup() {
-        imageGallery.contentMode = .scaleAspectFill
+        //imageGallery.contentMode = .scaleAspectFill
         imageGallery.layer.cornerRadius = 7
-        imageGallery.clipsToBounds = true
+        //imageGallery.clipsToBounds = true
     }
     
 }
